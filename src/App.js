@@ -6,6 +6,7 @@ function App() {
   const [data, setData] = useState({});
   const [numberOfRecords, setNumberOfRecords] = useState(0);
   const [selectApi, setSelectApi] = useState('');
+  console.log(numberOfRecords,selectApi);
   useEffect(() => {
     if (selectApi === 'fetch' && numberOfRecords > 0) {
       fetch(`https://randomuser.me/api/?results=${numberOfRecords}`)
@@ -31,8 +32,8 @@ function App() {
     temp1 = e.target.value;
   }
   const handleSubmit = () => {
-    setNumberOfRecords(temp);
-    setSelectApi(temp1);
+    if(temp!==0) setNumberOfRecords(temp);
+    if(temp1!=='') setSelectApi(temp1);
   }
   return (
     <>
